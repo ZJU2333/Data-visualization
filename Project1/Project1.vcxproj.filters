@@ -2,55 +2,55 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="Table.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\exception.h">
+    <ClInclude Include="libgraphics\exception.h">
       <Filter>libgraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\extgraph.h">
+    <ClInclude Include="libgraphics\extgraph.h">
       <Filter>libgraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\gcalloc.h">
+    <ClInclude Include="libgraphics\gcalloc.h">
       <Filter>libgraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\genlib.h">
+    <ClInclude Include="libgraphics\genlib.h">
       <Filter>libgraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\graphics.h">
+    <ClInclude Include="libgraphics\graphics.h">
       <Filter>libgraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\random.h">
+    <ClInclude Include="libgraphics\random.h">
       <Filter>libgraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\simpio.h">
+    <ClInclude Include="libgraphics\simpio.h">
       <Filter>libgraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\strlib.h">
+    <ClInclude Include="libgraphics\strlib.h">
       <Filter>libgraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\simpleGUI\imgui.h">
+    <ClInclude Include="simpleGUI\imgui.h">
       <Filter>simpleGUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Table.c" />
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\exceptio.c">
+    <ClCompile Include="libgraphics\exceptio.c">
       <Filter>libgraphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\genlib.c">
+    <ClCompile Include="libgraphics\genlib.c">
       <Filter>libgraphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\graphics.c">
+    <ClCompile Include="libgraphics\graphics.c">
       <Filter>libgraphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\random.c">
+    <ClCompile Include="libgraphics\random.c">
       <Filter>libgraphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\simpio.c">
+    <ClCompile Include="libgraphics\simpio.c">
       <Filter>libgraphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\strlib.c">
+    <ClCompile Include="libgraphics\strlib.c">
       <Filter>libgraphics</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\simpleGUI\imgui.c">
+    <ClCompile Include="simpleGUI\imgui.c">
       <Filter>simpleGUI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,11 +58,11 @@
     <Text Include="NewFile.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="libgraphics">
-      <UniqueIdentifier>{1872eef0-4c34-4bf3-b840-1225a180e951}</UniqueIdentifier>
-    </Filter>
     <Filter Include="simpleGUI">
       <UniqueIdentifier>{6dc439d6-62e8-4608-ad9a-b30aaa8b1001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libgraphics">
+      <UniqueIdentifier>{cea3fbfa-809a-4e0a-9b22-927fc25f4822}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

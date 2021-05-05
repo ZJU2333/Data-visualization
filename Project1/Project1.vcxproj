@@ -43,7 +43,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -114,12 +114,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Zerokei\source\repos\Data-visualization\Project1\simpleGUI;C:\Users\Zerokei\source\repos\Data-visualization\Project1\libgraphics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -140,26 +141,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\exception.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\extgraph.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\gcalloc.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\genlib.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\graphics.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\random.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\simpio.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\strlib.h" />
-    <ClInclude Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\simpleGUI\imgui.h" />
+    <ClInclude Include="libgraphics\exception.h" />
+    <ClInclude Include="libgraphics\extgraph.h" />
+    <ClInclude Include="libgraphics\gcalloc.h" />
+    <ClInclude Include="libgraphics\genlib.h" />
+    <ClInclude Include="libgraphics\graphics.h" />
+    <ClInclude Include="libgraphics\random.h" />
+    <ClInclude Include="libgraphics\simpio.h" />
+    <ClInclude Include="libgraphics\strlib.h" />
+    <ClInclude Include="simpleGUI\imgui.h" />
     <ClInclude Include="Table.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\exceptio.c" />
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\genlib.c" />
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\graphics.c" />
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\random.c" />
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\simpio.c" />
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\libgraphics\strlib.c" />
-    <ClCompile Include="..\..\..\LibGraphics_for_VS_devc_project\LibGraphics\simpleGUI\imgui.c" />
-    <ClCompile Include="Table.c" />
+    <ClCompile Include="libgraphics\exceptio.c" />
+    <ClCompile Include="libgraphics\genlib.c" />
+    <ClCompile Include="libgraphics\graphics.c" />
+    <ClCompile Include="libgraphics\random.c" />
+    <ClCompile Include="libgraphics\simpio.c" />
+    <ClCompile Include="libgraphics\strlib.c" />
+    <ClCompile Include="simpleGUI\imgui.c" />
+    <ClCompile Include="Table.c">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Zerokei\source\repos\Data-visualization\Project1\simpleGUI;C:\Users\Zerokei\source\repos\Data-visualization\Project1\libgraphics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="NewFile.txt" />
