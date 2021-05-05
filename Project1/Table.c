@@ -217,5 +217,7 @@ char* query_col_name(Table* p, int l) {
 }
 
 void Main() {
-	InitGraphics();
+	InitConsole();
+	printf("666");
+	return;
 }
