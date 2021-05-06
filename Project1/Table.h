@@ -1,3 +1,5 @@
+#include "graphics.h"
+#include "genlib.h"
 #include <stdlib.h>
 
 #ifndef TABLE_H
@@ -14,7 +16,7 @@ typedef struct Myele_list {
 
 typedef struct MyHead_ele_List {
 	ele_list* head;
-	char* name;
+	char* name;	
 }head_ele_list;
 
 typedef struct MyTable {

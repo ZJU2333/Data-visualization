@@ -215,9 +215,3 @@ char* query_col_name(Table* p, int l) {
 		return NULL;
 	return (p->col_head + l)->name;
 }
-
-void Main() {
-	InitConsole();
-	printf("666");
-	return;
-}

@@ -53,6 +53,7 @@
     <ClCompile Include="simpleGUI\imgui.c">
       <Filter>simpleGUI</Filter>
     </ClCompile>
+    <ClCompile Include="Main.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="NewFile.txt" />

@@ -159,6 +159,7 @@
     <ClCompile Include="libgraphics\random.c" />
     <ClCompile Include="libgraphics\simpio.c" />
     <ClCompile Include="libgraphics\strlib.c" />
+    <ClCompile Include="Main.c" />
     <ClCompile Include="simpleGUI\imgui.c" />
     <ClCompile Include="Table.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Zerokei\source\repos\Data-visualization\Project1\simpleGUI;C:\Users\Zerokei\source\repos\Data-visualization\Project1\libgraphics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
