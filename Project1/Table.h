@@ -1,9 +1,9 @@
+#ifndef _Table_h_
+#define _Table_h_
+
 #include "graphics.h"
 #include "genlib.h"
 #include <stdlib.h>
-
-#ifndef TABLE_H
-#define TABLE_H
 
 typedef struct Myelement {
 	double num;
@@ -24,6 +24,7 @@ typedef struct MyTable {
 	int	row_size;
 	head_ele_list* col_head;
 	head_ele_list* row_head;
+	char* data_name;
 }Table;
 
 Table* Generate_Table();
@@ -45,5 +46,9 @@ bool table_add_col(Table* p, int l, char* name);
 char* query_row_name(Table* p, int l);
 
 char* query_col_name(Table* p, int l);
+
+int query_col_num(Table* p);
+
+int query_row_num(Table* p);
 
 #endif 

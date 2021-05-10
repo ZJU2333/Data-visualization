@@ -9,7 +9,7 @@ Table* Generate_Table() { // O(1)
 	p->row_size = 0;
 	p->col_size = 0;
 
-	if ((p->row_head= (head_ele_list*)malloc(sizeof(head_ele_list))) == NULL)
+	if ((p->row_head = (head_ele_list*)malloc(sizeof(head_ele_list))) == NULL)
 		return NULL;
 	if ((p->col_head = (head_ele_list*)malloc(sizeof(head_ele_list))) == NULL)
 		return NULL;
@@ -132,15 +132,14 @@ bool table_del_col(Table* p, int l) { //O(n^2)
 }
 
 static bool create_line(head_ele_list *p, int l, char* name) { //O(n)
-	if ((p = (head_ele_list*)malloc(sizeof (head_ele_list))) == NULL)
+	if ((p->name = (char*)malloc(sizeof(name))) == NULL)
 		return FALSE;
-	if ((p->name = (char*)malloc(sizeof(char) * strlen(name))) == NULL)
-		return FALSE;
-	strcpy(p->name, name, sizeof name);
-	if ((p -> head = (ele_list *)malloc(sizeof (ele_list))) == NULL)
+	strcpy(p->name, name);
+	if ((p->head = (ele_list *)malloc(sizeof (ele_list))) == NULL)
 		return FALSE;
 	int i;
-	ele_list* pp = p->head;
+	ele_list* pp = p->head;// 创建一个空的头
+	pp->next = NULL;
 	for (i = 0; i < l; i++) {
 		ele_list* qq;
 		if ((qq= (ele_list*)malloc(sizeof(ele_list))) == NULL)
@@ -157,49 +156,49 @@ static bool create_line(head_ele_list *p, int l, char* name) { //O(n)
 }
 
 bool table_add_row(Table* p, int l, char *name) { //O(n^2)
-	if (l < 1 || l > p->row_size + 1)
+	if (l < 0 || l > p->row_size)
 		return FALSE;
 	head_ele_list* temp;
 	if ((temp = (head_ele_list*)malloc(sizeof(head_ele_list) * (p->row_size + 2))) == NULL)
 		return FALSE;
 	int i;
-	for (i = 0; i < l; ++i) {
+	for (i = 0; i <= l; ++i) {
 		temp[i] = p->row_head[i];
 	}
-	if (create_line(temp+l, p->col_size, name) == FALSE)
+	if (create_line(temp + (l + 1), p->col_size, name) == FALSE)
 		return FALSE;
-	for (i = l; i <= p->row_size; ++i) {
+	for (i = l + 1; i <= p->row_size; ++i) {
 		temp[i + 1] = p->row_head[i];
 	}
 	p->row_head = temp;
 	p->row_size++;
 
 	for (i = 1; i <= p->col_size; ++i) {
-		add_nth_ele((p->col_head + i)->head, query_ele((p->row_head + l)->head,i), l);
+		add_nth_ele((p->col_head + i)->head, query_ele((p->row_head + l + 1)->head, i), l + 1);
 	}
 	return TRUE;
 }
 
-bool table_add_col(Table* p, int l, char* name) { //O(n^2)
-	if (l < 1 || l > p->col_size + 1)
+bool table_add_col(Table* p, int l, char* name) { //O(n^2) insert after l
+	if (l < 0 || l > p->col_size)
 		return FALSE;
 	head_ele_list* temp;
 	if ((temp = (head_ele_list*)malloc(sizeof(head_ele_list) * (p->col_size + 2))) == NULL)
 		return FALSE;
 	int i;
-	for (i = 0; i < l; ++i) {
+	for (i = 0; i <= l; ++i) {
 		temp[i] = p->col_head[i];
 	}
-	if (create_line(temp + l, p->row_size, name) == FALSE)
+	if (create_line(temp + (l + 1), p->row_size, name) == FALSE)
 		return FALSE;
-	for (i = l; i <= p->col_size; ++i) {
+	for (i = l + 1; i <= p->col_size; ++i) {
 		temp[i + 1] = p->col_head[i];
 	}
 	p->col_head = temp;
 	p->col_size++;
 
 	for (i = 1; i <= p->row_size; ++i) {
-		add_nth_ele((p->row_head + i)->head, query_ele((p->col_head + l)->head, i), l);
+		add_nth_ele((p->row_head + i)->head, query_ele((p->col_head + l+1)->head, i), l+1);
 	}
 	return TRUE;
 }
@@ -214,4 +213,12 @@ char* query_col_name(Table* p, int l) {
 	if (l < 1 || l > p->col_size)
 		return NULL;
 	return (p->col_head + l)->name;
+}
+
+int query_col_num(Table* p) {
+	return p->col_size;
+}
+
+int query_row_num(Table* p) {
+	return p->row_size;
 }

@@ -29,6 +29,8 @@
     <ClInclude Include="simpleGUI\imgui.h">
       <Filter>simpleGUI</Filter>
     </ClInclude>
+    <ClInclude Include="FileControl.h" />
+    <ClInclude Include="Myio.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Table.c" />
@@ -54,6 +56,8 @@
       <Filter>simpleGUI</Filter>
     </ClCompile>
     <ClCompile Include="Main.c" />
+    <ClCompile Include="FileControl.c" />
+    <ClCompile Include="Myio.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="NewFile.txt" />

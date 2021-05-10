@@ -58,7 +58,7 @@
 #      define FALSE 0
 #      define TRUE 1
 #    else
-       typedef enum {FALSE, TRUE} bool;
+typedef enum { FALSE, TRUE } bool;
 #    endif
 #  endif
 #endif
