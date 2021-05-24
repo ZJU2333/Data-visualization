@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Draw.h" />
     <ClInclude Include="FileControl.h" />
     <ClInclude Include="libgraphics\exception.h" />
     <ClInclude Include="libgraphics\extgraph.h" />
@@ -150,11 +151,12 @@
     <ClInclude Include="libgraphics\random.h" />
     <ClInclude Include="libgraphics\simpio.h" />
     <ClInclude Include="libgraphics\strlib.h" />
-    <ClInclude Include="Myio.h" />
     <ClInclude Include="simpleGUI\imgui.h" />
     <ClInclude Include="Table.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="creatgui.c" />
+    <ClCompile Include="Draw.c" />
     <ClCompile Include="FileControl.c" />
     <ClCompile Include="libgraphics\exceptio.c" />
     <ClCompile Include="libgraphics\genlib.c" />
@@ -163,7 +165,6 @@
     <ClCompile Include="libgraphics\simpio.c" />
     <ClCompile Include="libgraphics\strlib.c" />
     <ClCompile Include="Main.c" />
-    <ClCompile Include="Myio.c" />
     <ClCompile Include="simpleGUI\imgui.c" />
     <ClCompile Include="Table.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Zerokei\source\repos\Data-visualization\Project1\simpleGUI;C:\Users\Zerokei\source\repos\Data-visualization\Project1\libgraphics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

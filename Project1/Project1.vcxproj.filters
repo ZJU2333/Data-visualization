@@ -30,7 +30,7 @@
       <Filter>simpleGUI</Filter>
     </ClInclude>
     <ClInclude Include="FileControl.h" />
-    <ClInclude Include="Myio.h" />
+    <ClInclude Include="Draw.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Table.c" />
@@ -57,7 +57,8 @@
     </ClCompile>
     <ClCompile Include="Main.c" />
     <ClCompile Include="FileControl.c" />
-    <ClCompile Include="Myio.c" />
+    <ClCompile Include="Draw.c" />
+    <ClCompile Include="creatgui.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="NewFile.txt" />

@@ -3,8 +3,8 @@
 #include <io.h>
 #include <direct.h>
 #include "Table.h"
-#include "Myio.h"
 #include <windows.h>
+#include <string.h>
 
 static void Set_Console_Pattern1() {
     HANDLE hOut;
@@ -79,7 +79,7 @@ FILE* Create_File() {
 
     char path[100];
 
-    printf("请输入你想要创建的文件名:\n");
+    printf("请输入你想要创建的文件名:（无需后缀名）\n");
     scanf("%s", path);
     strcat(path, ".csv");
     FILE* fp;
@@ -95,6 +95,7 @@ FILE* Create_File() {
         printf("open file successful!");
     }
     FreeConsole();
+    return fp;
 }
 FILE* Open_File() {
     InitConsole();
@@ -124,14 +125,22 @@ FILE* Open_File() {
     return fp;
 }
 bool Save_File(FILE* fp, Table* p) {
-    return Table_output(p, fp);
+    if (fclose(fp) == EOF) return FALSE;
+    if ((fp = fopen(filename, "w")) == NULL)
+        return FALSE;
+    bool flag = Table_output(p, fp);
+    if (fclose(fp) == EOF) return FALSE;
+    if (fp = fopen(filename, "r+") == NULL)
+        return FALSE;
+    return flag;
 }
-bool Save_File_as(Table* p) {
+bool Save_File_as(FILE **FP, Table* p) {
     // 因为文件并未被修改,所以不需要保存原来的文件  
 
     InitConsole();
     Set_Console_Pattern1();
-    
+
+    fclose(*FP);
     printf("请输入您想另存为的文件名\n");
     char path[100];
     scanf("%s", path);
@@ -153,10 +162,13 @@ bool Save_File_as(Table* p) {
     }
     Table_output(p, fp);
     fclose(fp);
+    if ((*FP = fopen(filename, "r+")) == NULL) {
+        return FALSE;
+    }
     return TRUE;
 }
-bool Close_File() {
-    if (fclose(filename) != EOF) {
+bool Close_File(FILE * fp) {
+    if (fclose(fp) != EOF) {
         memset(filename, 0, sizeof filename);
         return TRUE;
     }

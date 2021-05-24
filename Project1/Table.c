@@ -1,6 +1,7 @@
 #include "genlib.h" /*import bool*/
 #include "Table.h"
 #include <string.h>
+#include <stdio.h>
 
 Table* Generate_Table() { // O(1)
 	Table* p;
@@ -8,14 +9,12 @@ Table* Generate_Table() { // O(1)
 		return NULL;
 	p->row_size = 0;
 	p->col_size = 0;
+	p->data_name = NULL;
 
 	if ((p->row_head = (head_ele_list*)malloc(sizeof(head_ele_list))) == NULL)
 		return NULL;
 	if ((p->col_head = (head_ele_list*)malloc(sizeof(head_ele_list))) == NULL)
 		return NULL;
-	//if ((p->Pool = (ele*)malloc(sizeof(ele))) == NULL)
-	//	return NULL;
-	//(p->Pool)->next = 0;
 	return p;
 };
 
@@ -148,6 +147,7 @@ static bool create_line(head_ele_list *p, int l, char* name) { //O(n)
 		if ((qq->element = (ele*)malloc(sizeof(ele))) == NULL)
 			return FALSE;
 		(qq->element)->num = 0; // default = 0
+		sprintf((qq->element)->num_string, "%f", 0);
 		pp->next = qq;
 		qq->next = NULL;
 		pp = qq;
@@ -156,6 +156,7 @@ static bool create_line(head_ele_list *p, int l, char* name) { //O(n)
 }
 
 bool table_add_row(Table* p, int l, char *name) { //O(n^2)
+	//exit(0);
 	if (l < 0 || l > p->row_size)
 		return FALSE;
 	head_ele_list* temp;
@@ -170,6 +171,7 @@ bool table_add_row(Table* p, int l, char *name) { //O(n^2)
 	for (i = l + 1; i <= p->row_size; ++i) {
 		temp[i + 1] = p->row_head[i];
 	}
+	(temp+(l+1))->display_state = display_bar;//默认显示柱子
 	p->row_head = temp;
 	p->row_size++;
 
@@ -194,6 +196,7 @@ bool table_add_col(Table* p, int l, char* name) { //O(n^2) insert after l
 	for (i = l + 1; i <= p->col_size; ++i) {
 		temp[i + 1] = p->col_head[i];
 	}
+	(temp + (l+1))->display_state = display_bar;//默认显示柱子
 	p->col_head = temp;
 	p->col_size++;
 
@@ -215,10 +218,209 @@ char* query_col_name(Table* p, int l) {
 	return (p->col_head + l)->name;
 }
 
+bool change_row_name(Table* p, int l, char* name) {
+	if (l < 1 || l > p->row_size) {
+		return FALSE;
+	}
+	(p->row_head + l)->name = (char*)malloc(sizeof(name));
+	if ((p->row_head + l)->name == NULL)
+		return FALSE;
+	strcpy((p->row_head + l)->name, name);
+	return TRUE;
+}
+
+bool change_col_name(Table* p, int l, char* name) {
+	if (l < 1 || l > p->col_size) {
+		return FALSE;
+	}
+	(p->col_head + l)->name = (char *)malloc(sizeof (name));
+	if ((p->col_head + l)->name == NULL)
+		return FALSE;
+	strcpy((p->col_head + l)->name, name);
+	return TRUE;
+}
+
+bool change_data_name(Table* p, char* name) {
+	p->data_name = (char*)malloc(sizeof(name));
+	if (p->data_name == NULL)
+		return FALSE;
+	strcpy(p->data_name, name);
+	return TRUE;
+}
+
 int query_col_num(Table* p) {
 	return p->col_size;
 }
 
 int query_row_num(Table* p) {
 	return p->row_size;
+}
+
+double query_col_average(Table* p, int l) { //求列平均值
+	if (l < 0 || l > p->col_size) return -1;
+	double sum = 0.0;
+	ele_list* lp = (p->col_head + l)->head;
+	for (lp = lp->next; lp; lp = lp->next)
+		sum += (lp->element)->num;
+	return sum / p->col_size;
+}
+
+bool query_if_show_bar(Table* p, int l) {
+	if (l < 1 || l > p->row_size) return FALSE;
+	return (((p->row_head) + l)->display_state == display_bar);
+}
+
+bool query_if_show_line(Table* p, int l) {
+	if (l < 1 || l > p->row_size) return FALSE;
+	return (((p->row_head) + l)->display_state == display_line);
+}
+
+bool query_if_show_dot(Table* p, int l) {
+	if (l < 1 || l > p->row_size) return FALSE;
+	return (((p->row_head) + l)->display_state == display_dot);
+}
+
+bool let_it_show_bar(Table* p, int l) {
+	if (l < 1 || l > p->row_size) return FALSE;
+	((p->row_head) + l)->display_state = display_bar;
+	return TRUE;
+}
+
+bool let_it_show_line(Table* p, int l) {
+	if (l < 1 || l > p->row_size) return FALSE;
+	((p->row_head) + l)->display_state = display_line;
+	return TRUE;
+}
+
+bool let_it_show_dot(Table* p, int l) {
+	if (l < 1 || l > p->row_size) return FALSE;
+	((p->row_head) + l)->display_state = display_dot;
+	return TRUE;
+}
+
+bool table_show_bar(Table* p) {
+	if (p == NULL)
+		return FALSE;
+	int i;
+	for (i = 1; i <= query_row_num(p); ++i) {
+		let_it_show_bar(p, i);
+	}
+	return TRUE;
+}
+bool table_show_line(Table* p) {
+	if (p == NULL)
+		return FALSE;
+	int i;
+	for (i = 1; i <= query_row_num(p); ++i) {
+		let_it_show_line(p, i);
+	}
+	return TRUE;
+}
+bool table_show_dot(Table* p) {
+	if (p == NULL)
+		return FALSE;
+	int i;
+	for (i = 1; i <= query_row_num(p); ++i) {
+		let_it_show_dot(p, i);
+	}
+	return TRUE;
+}
+
+static int Max(int a, int b) {
+	return b < a ? a : b;
+}
+bool Table_input(Table* p, FILE* fp) { //O(n^3)
+
+	char buf[21][21][10], ch;
+	int index = 0, i = 0, j = 0, col_size = 0, row_size = 0;
+
+	//freopen("test.txt", "w", stdout);
+	while ((ch = fgetc(fp)) != EOF) {
+		row_size = Max(row_size, i);
+		col_size = Max(col_size, j);
+		//printf("i=%d j=%d c=%d\n", i, j, ch);
+		switch (ch) {
+		case ',':
+			buf[i][j][index] = 0;
+			index = 0;
+			j++;
+			break;
+		case '\r':
+			buf[i][j][index] = 0;
+			index = 0;
+			i++, j = 0;
+			break;
+		case '\n':
+			buf[i][j][index] = 0;
+			index = 0;
+			i++, j = 0;
+			break;
+		default:
+			buf[i][j][index++] = ch;
+			break;
+		}
+	}
+	if (i == 0 && j == 0) {
+		p->data_name = NULL;
+		return TRUE; // 空文件
+	}
+
+	//利用原有的功能实现赋值，因为实在懒得再写一个函数了
+	p->data_name = (char*)malloc(sizeof(buf[0][0]));
+	strcpy(p->data_name, buf[0][0]);
+
+	p->row_size = row_size;
+	p->row_head = (head_ele_list*)malloc(sizeof(head_ele_list) * (p->row_size + 1));
+
+	//printf("%d\n", p->row_size);
+	for (i = 1; i <= p->row_size; ++i) {
+		head_ele_list* hd = p->row_head + i;
+		hd->head = (ele_list*)malloc(sizeof(ele_list));
+		hd->name = (char*)malloc(sizeof(buf[i][0]));
+		strcpy(hd->name, buf[i][0]);
+		//printf("%s\n", hd->name);
+	}
+	//exit(0);
+
+	for (j = 1; j <= col_size; ++j) {
+		table_add_col(p, j - 1, buf[0][j]);
+	}
+
+	for (i = 1; i <= row_size; ++i) {
+		let_it_show_bar(p, i);
+		//(p->row_head + i)->display_state
+		//printf("state: %d\n", );
+		for (j = 1; j <= col_size; ++j) {
+			table(p, i, j)->num = atof(buf[i][j]);
+			strcpy(table(p, i, j)->num_string, buf[i][j]);
+			//freopen("test.txt", "w", stdout);
+			//printf("%f\n", atof(buf[i][j]));
+		}
+	}
+	//exit(0);
+	//printf("col_num = %d\n", p->col_size);
+	//exit(0);
+	return TRUE;
+}
+
+bool Table_output(Table* p, FILE* fp) { // O(n^4)
+	if (fp == NULL) return FALSE; //如果文件是空的，返回失败
+
+	fprintf(fp, "%s,", p->data_name);
+
+	int i, j;
+	for (j = 1; j <= p->col_size; ++j) {
+		fprintf(fp, "%s%c", query_col_name(p, j), (j == p->col_size) ? '\r' : ',');
+		if (j == p->col_size) putchar('\n');
+	}
+
+	for (i = 1; i <= p->row_size; ++i) {
+		fprintf(fp, "%s,", query_row_name(p, i));
+		for (j = 1; j <= p->col_size; ++j) {
+			fprintf(fp, "%.6f%c", table(p, i, j)->num, (j == p->col_size) ? '\r' : ',');
+			if (j == p->col_size) putchar('\n');
+		}
+	}
+
+	return TRUE;
 }

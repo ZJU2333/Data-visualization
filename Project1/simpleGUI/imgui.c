@@ -307,7 +307,7 @@ int button(int id, double x, double y, double w, double h, char *label)
 	// ª≠º¸≈ÃÃ· æ, show a small ractangle frane
 	if( gs_UIState.kbdItem == id ) {
 		mySetPenColor( labelColor );
-		drawRectangle(x+sinkx+shrink, y+sinky+shrink, w-2*shrink, h-2*shrink, 0);
+		//drawRectangle(x+sinkx+shrink, y+sinky+shrink, w-2*shrink, h-2*shrink, 0);
 	}
 
 	if( gs_UIState.clickedItem==id && // must be clicked before
