@@ -1,0 +1,27 @@
+﻿  creatgui.c
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(104,13): warning C4013: “click”未定义；假设外部返回 int
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(196,18): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(265,18): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(389,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(391,3): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(416,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(532,18): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(621,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(623,4): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(632,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(691,23): warning C4013: “Open_File”未定义；假设外部返回 int
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(691,25): warning C4047: “=”:“FILE *”与“int”的间接级别不同
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(705,25): warning C4013: “Create_File”未定义；假设外部返回 int
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(705,27): warning C4047: “=”:“FILE *”与“int”的间接级别不同
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(718,13): warning C4013: “Close_File”未定义；假设外部返回 int
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(726,23): warning C4013: “Save_File”未定义；假设外部返回 int
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(732,26): warning C4013: “Save_File_as”未定义；假设外部返回 int
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(786,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(797,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(814,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(822,15): warning C4013: “mySetPenColor”未定义；假设外部返回 int
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(830,18): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(833,18): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(886,17): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\creatgui.c(894,16): warning C4244: “函数”: 从“double”转换到“int”，可能丢失数据
+  Project1.vcxproj -> C:\Users\IvanH\Desktop\C大作业\Data-visualization-master\Project1-new\Debug\Project1.exe
